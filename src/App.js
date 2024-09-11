@@ -1,5 +1,7 @@
+import UserTable from './components/UserTable';
+
 function App() {
-  return <div>App</div>;
+  return <UserTable />;
 }
 
 export default App;
