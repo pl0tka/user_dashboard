@@ -1,5 +1,5 @@
-import UserTable from './components/UserTable';
-import UserFilter from './components/UserFilter';
+import UserTable from './components/UserTable.tsx';
+import UserFilter from './components/UserFilter.tsx';
 
 function App() {
   return (

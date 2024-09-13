@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { usersApi } from './api/usersApi';
-import { usersReducer } from './slices/usersSlice';
+import { usersApi } from './api/usersApi.ts';
+import { usersReducer } from './slices/usersSlice.ts';
 
 export const store = configureStore({
   reducer: {
@@ -15,4 +15,8 @@ export const store = configureStore({
 
 setupListeners(store.dispatch);
 
-export { useFetchUsersQuery } from './api/usersApi';
+export { useFetchUsersQuery } from './api/usersApi.ts';
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+export type AppStore = typeof store;
