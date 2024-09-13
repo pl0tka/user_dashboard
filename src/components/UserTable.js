@@ -1,12 +1,25 @@
 import { useFetchUsersQuery } from '../store';
+import { useSelector } from 'react-redux';
+import { filters } from '../data/const';
 
 function UserTable() {
+  const filterData = useSelector((state) => state.users.filterData);
   const { data, error, isLoading } = useFetchUsersQuery();
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+  if (error) {
+    return <p>Error: {error.error}</p>;
+  }
 
-  const renderedUsers = data.map((user) => {
+  const filteredUsers = data.filter((user) => {
+    return Object.entries(filterData).every(([key, value]) =>
+      user[key].toLowerCase().includes(value.toLowerCase())
+    );
+  });
+
+  const renderedUsers = filteredUsers.map((user) => {
     const { id, name, username, email, phone } = user;
     return (
       <tr key={id}>
@@ -18,15 +31,12 @@ function UserTable() {
     );
   });
 
+  const renderedTableHeaders = filters.map((filter) => <th>{filter}</th>);
+
   return (
     <table>
       <thead>
-        <tr>
-          <th>name</th>
-          <th>username</th>
-          <th>email</th>
-          <th>phone</th>
-        </tr>
+        <tr>{renderedTableHeaders}</tr>
       </thead>
       <tbody>{renderedUsers}</tbody>
     </table>

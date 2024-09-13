@@ -1,4 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { usersApi } from '../api/usersApi';
 
-const usersSlice = createSlice({});
+const usersSlice = createSlice({
+  name: 'users',
+  initialState: {
+    filterData: {},
+  },
+  reducers: {
+    changeFilterData(state, action) {
+      state.filterData[action.payload.filterParam] = action.payload.filterInput;
+    },
+  },
+});
+
+export const { changeFilterData } = usersSlice.actions;
+export const usersReducer = usersSlice.reducer;

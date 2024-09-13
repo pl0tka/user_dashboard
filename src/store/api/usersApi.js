@@ -1,16 +1,18 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const usersApi = createApi({
-  reducerPath: 'users',
+  reducerPath: 'usersApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://jsonplaceholder.typicode.com/',
+    baseUrl: '/',
+    // baseUrl: 'https://jsonplaceholder.typicode.com/',
   }),
   endpoints(builder) {
     return {
       fetchUsers: builder.query({
         query: () => {
           return {
-            url: '/users',
+            url: 'users.json',
+            // url: 'users',
             method: 'GET',
           };
         },
