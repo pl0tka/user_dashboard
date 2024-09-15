@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks.ts';
 import { changeFilterData } from '../store/slices/usersSlice.ts';
-import { filters } from '../data/const.ts';
+import { filters } from '../const.ts';
 import { Filters } from '../types.ts';
 
 const UserFilter: React.FunctionComponent = () => {

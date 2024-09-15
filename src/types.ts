@@ -5,6 +5,12 @@ export enum Filters {
   PHONE = 'phone',
 }
 
+export enum AppStage {
+  LOADING = 'loading',
+  ERROR = 'error',
+  SUCCESS = 'success',
+}
+
 export type User = {
   id: string;
   name: string;
