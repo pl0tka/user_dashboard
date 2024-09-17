@@ -1,5 +1,6 @@
 import React from 'react';
+import CenteredContainer from '../../styles/CenteredContainer.tsx'
 
 export const LoadingPage: React.FunctionComponent = () => {
-  return <p>Loading...</p>;
+  return <CenteredContainer>Loading...</CenteredContainer>;
 };

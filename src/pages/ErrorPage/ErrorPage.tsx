@@ -1,5 +1,14 @@
 import React from 'react';
+import CenteredContainer from '../../styles/CenteredContainer.tsx'
 
-export const ErrorPage: React.FunctionComponent = () => (
-  <p>Ooops something went wrong</p>
+interface ErrorPageProps {
+  errorMessage?: string;
+}
+
+export const ErrorPage: React.FunctionComponent<ErrorPageProps> = ({
+  errorMessage,
+}) => (
+  <CenteredContainer>
+    Oops, there was an error: {errorMessage}
+  </CenteredContainer>
 );
