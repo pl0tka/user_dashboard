@@ -89,6 +89,7 @@ const UserFilter: React.FunctionComponent = () => {
       <Input
         type="text"
         name={filter}
+        id={filter}
         placeholder={`Filter by ${filter}`}
         value={filterInput[filter] ? filterInput[filter] : ''}
         onChange={(event) =>
