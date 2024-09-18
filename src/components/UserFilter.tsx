@@ -89,7 +89,9 @@ const UserFilter: React.FunctionComponent = () => {
       <Input
         type="text"
         name={filter}
+        id={filter}
         placeholder={`Filter by ${filter}`}
+        autoComplete='on'
         value={filterInput[filter] ? filterInput[filter] : ''}
         onChange={(event) =>
           handleChange(event.target.value, filter as Filters)
